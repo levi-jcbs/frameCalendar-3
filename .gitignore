@@ -1,0 +1,2 @@
+/podman/config/*.env
+!/podman/config/*.template.env
