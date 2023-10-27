@@ -43,8 +43,8 @@ fi
 #
 
 if [ "$action" == "build" ] || [ "$action" == "deploy" ]; then
-	echo_and_run "podman build -t framecalendar-mariadb -f images/mariadb/ ."
-	echo_and_run "podman build -t framecalendar-apache -f images/apache/ ."
+	echo_and_run "podman build -t framecalendar-mariadb -f images/mariadb/Containerfile ."
+	echo_and_run "podman build -t framecalendar-apache -f images/apache/Containerfile ."
 fi
 
 if [ "$action" == "start" ] || [ "$action" == "deploy" ]; then
@@ -56,7 +56,7 @@ if [ "$action" == "start" ] || [ "$action" == "deploy" ]; then
 		gen_mariadb_host="127.0.0.1"
 		gen_mariadb_random_root_password="1"
 		gen_mariadb_user="framecalendar"
-		gen_mariadb_password=$(tr -dc A-Za-z0-9/ </dev/urandom | head -c 256)
+		gen_mariadb_password=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 64)
 		gen_mariadb_database="framecalendar"
 
 		echo
@@ -67,15 +67,15 @@ if [ "$action" == "start" ] || [ "$action" == "deploy" ]; then
 		echo "MARIADB_PASSWORD             = $gen_mariadb_password"
 		echo "MARIADB_DATABASE             = $gen_mariadb_database"
 
-		echo "FRAMECALENDAR_MARIADB_HOST=$gen_mariadb_host" >>podman/config/apache.env
-		echo "FRAMECALENDAR_MARIADB_USER=$gen_mariadb_user" >>podman/config/apache.env
-		echo "FRAMECALENDAR_MARIADB_PASSWORD=$gen_mariadb_password" >>podman/config/apache.env
-		echo "FRAMECALENDAR_MARIADB_DATABASE=$gen_mariadb_database" >>podman/config/apache.env
+		echo "FRAMECALENDAR_MARIADB_HOST=$gen_mariadb_host" >> podman/config/apache.env
+		echo "FRAMECALENDAR_MARIADB_USER=$gen_mariadb_user" >> podman/config/apache.env
+		echo "FRAMECALENDAR_MARIADB_PASSWORD=$gen_mariadb_password" >> podman/config/apache.env
+		echo "FRAMECALENDAR_MARIADB_DATABASE=$gen_mariadb_database" >> podman/config/apache.env
 
-		echo "MARIADB_RANDOM_ROOT_PASSWORD=$gen_mariadb_random_root_password" >>podman/config/mariadb.env
-		echo "MARIADB_USER=$gen_mariadb_user" >>podman/config/mariadb.env
-		echo "MARIADB_PASSWORD=$gen_mariadb_password" >>podman/config/mariadb.env
-		echo "MARIADB_DATABASE=$gen_mariadb_database" >>podman/config/mariadb.env
+		echo "MARIADB_RANDOM_ROOT_PASSWORD=$gen_mariadb_random_root_password" >> podman/config/mariadb.env
+		echo "MARIADB_USER=$gen_mariadb_user" >> podman/config/mariadb.env
+		echo "MARIADB_PASSWORD=$gen_mariadb_password" >> podman/config/mariadb.env
+		echo "MARIADB_DATABASE=$gen_mariadb_database" >> podman/config/mariadb.env
 	fi
 
 	echo_and_run "podman pod create --replace -p $port:80 framecalendar"
@@ -84,7 +84,7 @@ if [ "$action" == "start" ] || [ "$action" == "deploy" ]; then
 	if [ "$type" == "prod" ]; then
 		echo_and_run "podman container create --replace --pod framecalendar --name framecalendar-apache --env-file podman/config/apache.env framecalendar-apache:latest"
 	elif [ "$type" == "dev" ]; then
-		echo_and_run "podman container create --replace --pod framecalendar --name framecalendar-apache --env-file podman/config/apache.env -v ./application/:/var/www/framecalendar/:Z framecalendar-apache:latest"
+		echo_and_run "podman container create --replace --pod framecalendar --name framecalendar-apache --env-file podman/config/apache.env -v ./webserver/:/var/www/framecalendar/:Z framecalendar-apache:latest"
 	fi
 
 	echo_and_run "podman pod start framecalendar"
