@@ -1,0 +1,253 @@
+/* © Copyright 2023 by Levi Jacobs */
+
+/* ASSETS > CSS > MAIN */
+
+main {
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
+/* basics */
+section {
+	margin: 50px 0px;
+}
+
+/* MEDIA */
+
+/* desktop */
+@media (min-width: 1000px) {
+	main {
+		margin: 0px 15vw;
+	}
+}
+
+/* mobile */
+@media (max-width: 999px) {
+	main {
+		margin: 0px 25px;
+	}
+}
+
+/* title */
+main>.titlebar {
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+main>.titlebar>.h1 {
+	font-size: var(--font-size-h1);
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+main>.titlebar>.h1_subtitle {
+	display: inline-block;
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-light);
+}
+
+main .h2 {
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-bold);
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+/* buttons */
+main .inputbar {
+	display: flex;
+	gap: 10px;
+	margin: 10px 0px;
+}
+
+main .inputbar>div,
+main .inputbar>label,
+main input[type=submit],
+main .button,
+main select {
+	display: inline-block;
+	border: none;
+	background-color: var(--col-foreground);
+	color: var(--col-text);
+	padding: 10px 15px;
+	border-radius: 7px;
+	cursor: pointer;
+	transition: background-color 200ms;
+	font-size: var(--font-size-text);
+	font-weight: var(--font-weight-normal);
+}
+
+main .inputbar>div:hover,
+main .inputbar>label:hover,
+main input[type=submit]:hover,
+main .button:hover,
+main select:hover {
+	background-color: var(--col-accent);
+}
+
+/* input fields */
+main input[type=text],
+main input[type=password],
+main input[type=date],
+main input[type=time],
+main input[type=number],
+main input[type=url],
+textarea {
+	position: relative;
+	display: inline-block;
+	border: none;
+	background-color: var(--col-accent);
+	color: var(--col-text);
+	padding: 10px 15px;
+	border-radius: 7px;
+	transition: background-color 200ms;
+	min-width: 100px;
+	width: 500px;
+	max-width: 100%;
+	font-family: var(--font-family);
+	font-size: var(--font-size-text);
+	font-weight: var(--font-weight-normal);
+}
+
+main input[type=text]:disabled,
+main input[type=password]:disabled,
+main input[type=date]:disabled,
+main input[type=time]:disabled,
+main input[type=number]:disabled,
+main input[type=url]:disabled,
+textarea:disabled {
+	cursor: default;
+	opacity: 0.5;
+}
+
+textarea {
+	resize: vertical;
+	height: 100px;
+}
+
+/* button overview */
+main .button_overview {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: 1fr;
+	gap: 25px;
+	margin: 25px 0px;
+}
+
+main .button_overview>div {
+	display: grid;
+	grid-template-areas: "title title" "propertie_1 propertie_2";
+	gap: 10px;
+	padding: 15px 25px;
+	border-radius: 7px;
+	background-color: var(--col-foreground);
+	cursor: pointer;
+	transition: background-color 200ms;
+	overflow: hidden;
+}
+
+main .button_overview>div:hover {
+	background-color: var(--col-accent);
+}
+
+main .button_overview>div>div:first-child {
+	font-size: var(--font-size-h2);
+	grid-area: title;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+main .button_overview>div>div:nth-child(2) {
+	font-weight: var(--font-weight-light);
+	align-self: end;
+	grid-area: propertie_1;
+}
+
+main .button_overview>div>div:nth-child(3) {
+	font-weight: var(--font-weight-light);
+	align-self: end;
+	justify-self: right;
+	grid-area: propertie_2;
+}
+
+/* eventlist */
+main .eventlist>div:not(:last-child) {
+	padding-bottom: 15px;
+}
+
+main .eventlist>div:not(:first-child) {
+	border-top: 1px solid var(--col-text);
+	padding-top: 15px;
+}
+
+main .eventlist>div>div:not(.contentrow) {
+	display: flex;
+	gap: 10px;
+	margin: 10px 0px;
+	overflow-y: auto;
+}
+
+main .eventlist>div>div.timerow input[type=date],
+main .eventlist>div>div.timerow input[type=time] {
+	min-width: min-content;
+}
+
+main .eventlist>div>div.timerow input {
+	width: auto;
+	flex: 0 1 195px;
+}
+
+main .eventlist>div>div.timerow .button {
+	width: fit-content;
+	margin-left: auto;
+}
+
+main .eventlist>div>div.linkrow input {
+	flex: 0 1 400px;
+}
+
+main .eventlist>div>div.linkrow select {
+	flex: 0 1 auto;
+}
+
+main .eventlist>div>div.colrow input {
+	width: 195px;
+}
+
+main .eventlist>div>div.contentrow {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 10px 0px;
+	gap: 10px;
+	overflow-y: auto;
+}
+
+main .eventlist>div>div.contentrow input,
+main .eventlist>div>div.contentrow textarea {
+	width: auto;
+}
+
+main .eventlist>div>div.contentrow input:first-of-type,
+main .eventlist>div>div.contentrow textarea:first-of-type {
+	font-weight: var(--font-weight-bold);
+}
+
+/* etc */
+main .logo-inline {
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 7px;
+	background-color: var(--col-foreground);
+	font-weight: var(--font-weight-light);
+	margin-bottom: 5px;
+}
+
+main .logo-inline span {
+	font-weight: var(--font-weight-normal);
+}
+
+main .address {
+	line-height: 30px;
+}

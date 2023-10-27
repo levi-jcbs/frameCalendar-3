@@ -1,0 +1,134 @@
+/* © Copyright 2023 by Levi Jacobs */
+
+/* ASSETS > CSS > NOTIFICATIONS */
+
+.notifications {
+	z-index: 11;
+	display: block;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+}
+
+.notifications>div.fadeout {
+	animation: notification_fadeout 1250ms;
+	animation-fill-mode: forwards;
+	animation-delay: 0ms !important;
+}
+
+.notifications>div.defaultanimation {
+	animation: notification_fadein 600ms, notification_fadeout 1250ms;
+	animation-fill-mode: forwards;
+	opacity: 0;
+	transform: translateX(100px);
+}
+
+.notifications>div {
+	display: flex;
+	float: right;
+	clear: right;
+	gap: 15px;
+	align-items: center;
+	padding-left: 30px;
+	max-height: 100px;
+	margin: 20px;
+	margin-bottom: 0px;
+	border-radius: 7px;
+	font-weight: var(--font-weight-bold);
+	overflow: hidden;
+}
+
+.notifications>div>div:first-child {
+	padding: 15px 0px;
+	flex-grow: 1;
+}
+
+.notifications>div>div:nth-child(2) {
+	display: flex;
+	align-self: stretch;
+	align-items: center;
+	padding: 0px 15px;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: opacity 200ms;
+}
+
+.notifications>div>div:nth-child(2):hover {
+	opacity: 1;
+}
+
+.notifications>div>div:nth-child(2)>svg {
+	box-sizing: content-box;
+	height: 10px;
+	padding: 3px;
+	border-radius: 50%;
+}
+
+.notifications>div.positive>div:nth-child(2)>svg {
+	background-color: var(--col-green-text);
+	fill: var(--col-green);
+}
+
+.notifications>div.positive {
+	background-color: var(--col-green);
+	color: var(--col-green-text);
+	animation-delay: calc(var(--this-animation-delay) + 0ms), calc(var(--this-animation-delay) + 5s);
+}
+
+.notifications>div.neutral>div:nth-child(2)>svg {
+	background-color: var(--col-grey-text);
+	fill: var(--col-grey);
+}
+
+.notifications>div.neutral {
+	background-color: var(--col-grey);
+	color: var(--col-grey-text);
+	animation-delay: calc(var(--this-animation-delay) + 0ms), calc(var(--this-animation-delay) + 10s);
+}
+
+.notifications>div.negative>div:nth-child(2)>svg {
+	background-color: var(--col-red-text);
+	fill: var(--col-red);
+}
+
+.notifications>div.negative {
+	background-color: var(--col-red);
+	color: var(--col-red-text);
+	animation-delay: calc(var(--this-animation-delay) + 0ms), calc(var(--this-animation-delay) + 20s);
+}
+
+/* KEYFRAMES */
+@keyframes notification_fadeout {
+	0% {
+		opacity: 1;
+		transform: translateX(0px);
+		max-height: 100px;
+		margin-top: 20px;
+	}
+
+	75% {
+		opacity: 0;
+		transform: translateX(100px);
+		max-height: 100px;
+		margin-top: 20px;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(100px);
+		max-height: 0px;
+		margin-top: 0px;
+	}
+}
+
+@keyframes notification_fadein {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}

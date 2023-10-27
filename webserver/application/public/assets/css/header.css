@@ -1,0 +1,122 @@
+/* © Copyright 2023 by Levi Jacobs */
+
+/* ASSETS > CSS > HEADER */
+
+header {
+	position: sticky;
+	top: 0px;
+	background-color: var(--col-header);
+	overflow: hidden;
+	z-index: 10;
+	margin-bottom: 50px;
+}
+
+header>.toprow {
+	display: flex;
+	justify-content: space-between;
+	position: sticky;
+	gap: 75px;
+	margin: 25px 0px;
+}
+
+header>.bottomrow {
+	margin: 25px 0px;
+}
+
+header>.toprow>.logo {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	font-size: var(--font-size-logo);
+}
+
+header>.toprow>.menu_desktop {
+	align-items: center;
+	justify-content: right;
+	gap: 25px;
+}
+
+header>.toprow>.menu_desktop>div {
+	cursor: pointer;
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-light);
+
+}
+
+header>.toprow>.menu_desktop>div._active,
+header>.bottomrow>.menu_mobile>div._active {
+	font-weight: var(--font-weight-bold);
+}
+
+header>.toprow>.menuicon_mobile {
+	align-items: center;
+}
+
+header>.toprow>.menuicon_mobile>label {
+	display: flex;
+	align-items: center;
+}
+
+header>.toprow>.menuicon_mobile svg {
+	width: 30px;
+	height: 30px;
+	fill: var(--col-text);
+	cursor: pointer;
+}
+
+header>.bottomrow>#header_menu_mobile_switch:checked+.menu_mobile {
+	display: flex;
+}
+
+header>.bottomrow>#header_menu_mobile_switch:not(:checked)+.menu_mobile {
+	display: none;
+}
+
+header>.bottomrow>.menu_mobile {
+	flex-wrap: wrap;
+	width: min-content;
+	gap: 10px 0px;
+}
+
+header>.bottomrow>.menu_mobile>div {
+	cursor: pointer;
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-light);
+	white-space: nowrap;
+}
+
+/* MEDIA */
+
+/* desktop */
+@media (min-width: 1000px) {
+	header>.toprow>.menuicon_mobile {
+		display: none;
+	}
+
+	header>.bottomrow>.menu_mobile {
+		display: none !important;
+	}
+
+	header>.toprow>.menu_desktop {
+		display: flex;
+	}
+
+	header {
+		padding: 0px 50px;
+	}
+}
+
+/* mobile */
+@media (max-width: 999px) {
+	header>.toprow>.menuicon_mobile {
+		display: flex;
+	}
+
+	header>.toprow>.menu_desktop {
+		display: none;
+	}
+
+	header {
+		padding: 0px 25px;
+	}
+}

@@ -1,0 +1,15 @@
+/* © Copyright 2023 by Levi Jacobs */
+
+/* ASSETS > CSS > TOGGLE */
+
+input[type=checkbox].section_toggle {
+	display: none;
+}
+
+input[type=checkbox].section_toggle+section {
+	display: none;
+}
+
+input[type=checkbox].section_toggle:checked+section {
+	display: block;
+}

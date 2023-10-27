@@ -1,0 +1,50 @@
+/* © Copyright 2023 by Levi Jacobs */
+
+/* ASSETS > CSS > BASE */
+
+/* TOP LEVEL */
+
+* {
+	box-sizing: border-box;
+}
+
+*:not(input):not(textarea) {
+	user-select: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+	color: var(--col-text);
+	font-family: var(--font-family);
+    font-size: var(--font-size-text);
+    font-weight: var(--font-weight-normal);
+}
+
+body {
+    background-color: var(--col-background);
+}
+
+/* SNIPPETS */
+
+span.snippet_fweight_light {
+	font-weight: var(--font-weight-light) !important;
+}
+
+span.snippet_fsize_text {
+	font-size: var(--font-size-text) !important;
+}
+
+span.snippet_fsize_note {
+	font-size: var(--font-size-note) !important;
+}
+
+/* BASICS */
+
+.pseudo {
+	display: none;
+}
+
+b {
+	font-weight: var(--font-weight-bold);
+}
