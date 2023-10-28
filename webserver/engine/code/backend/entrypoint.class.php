@@ -1,7 +1,10 @@
 <?php
 
-Class engine_backend_entrypoint {
-    public static function process() {
+class engine_backend_entrypoint
+{
+    # Entrypoint function
+    public static function run()
+    {
         echo "Hello World!";
     }
 }

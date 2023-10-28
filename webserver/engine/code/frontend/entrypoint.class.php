@@ -1,7 +1,10 @@
 <?php
 
-Class engine_frontend_entrypoint {
-	public static function render($post_overrides = array()) {
+class engine_frontend_entrypoint
+{
+	# Entrypoint function
+	public static function run($post_overrides = array())
+	{
 		echo "Hello World!";
 	}
 }
