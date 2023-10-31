@@ -1,5 +1,7 @@
 <?php
 
+/* FRONTEND > ENTRYPOINT */
+
 class engine_frontend_entrypoint
 {
 	# Entrypoint function
