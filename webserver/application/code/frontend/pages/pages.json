@@ -1,5 +1,6 @@
 {
 	"admin": {
+		"html-title": "frameCalendar",
 		"default": true
 	}
 }

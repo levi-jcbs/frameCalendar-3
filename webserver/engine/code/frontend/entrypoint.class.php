@@ -8,7 +8,7 @@ class engine_frontend_entrypoint
 	public static function run($post_overrides = array())
 	{
 		self::overwrite_post_data($post_overrides);
-		
+
 		if (!engine_global_manifest::init()) {
 			return false;
 		}
@@ -21,7 +21,11 @@ class engine_frontend_entrypoint
 			return false;
 		}
 
+		if (!engine_frontend_request::init()) {
+			return false;
+		}
 
+		return engine_frontend_render::run();
 	}
 
 

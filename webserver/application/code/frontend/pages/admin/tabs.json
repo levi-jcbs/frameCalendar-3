@@ -1,3 +1,17 @@
 {
-
+	"login": {
+		"menu-title": "Sign in",
+		"authentication": false,
+		"default": true
+	},
+	"about": {
+		"menu-title": "About",
+		"authentication": false,
+		"default": false
+	},
+	"settings": {
+		"menu-title": "Preferences",
+		"authentication": true,
+		"default": true
+	}
 }
