@@ -1,6 +1,6 @@
 <?php
 
-/* GLOBAL > IMPORT */
+/* ENGINE > GLOBAL > IMPORT */
 
 class engine_global_import
 {
@@ -14,28 +14,35 @@ class engine_global_import
 		if (!in_array($component, self::$components) and !is_null($component)) {
 			# Exit if component doesnt exist, but is set (not null).
 			return false;
-		} else if (is_null($component)) {
+		} 
+		
+		# Import Basic Constants
+		self::import_constants();
+
+		# import global
+		self::import_component("global");
+		
+		if (is_null($component)) {
 			# Import all components if component is not set (null).
-			foreach (self::$components as $component) {
-				self::import_component($component);
+			foreach (self::$components as $this_component) {
+				self::import_component($this_component);
 			}
 		} else {
 			# Import specific component if component exists.
 			self::import_component($component);
 		}
 
-		# Always import global.
-		self::import_component("global");
-
 		return true;
+	}
+
+	private static function import_constants(){
+		define( "PROJECT_ROOT", realpath(__DIR__ . "/../../..") );
 	}
 
 	private static function import_component($component)
 	{
-		$project_root = realpath(__DIR__ . "/../../..");
-
-		self::require_once_recursive($project_root . "/engine/code/" . $component . "/");
-		self::require_once_recursive($project_root . "/application/code/" . $component . "/");
+		self::require_once_recursive(PROJECT_ROOT . "/engine/code/" . $component . "/");
+		self::require_once_recursive(PROJECT_ROOT . "/application/code/" . $component . "/");
 	}
 
 	private static function require_once_recursive($directory)

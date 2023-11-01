@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Developed by Levi Jacobs (J'cobs Softwareentwicklung - jcobs.de) -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/fonts/noto-sans/noto-sans.css">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/css/variables.css">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/css/base.css">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/css/header.css">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/css/main.css">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/css/toggle.css">
+	<link rel="stylesheet" href="%:propertie_html_project_root:%/assets/css/notifications.css">
+	<script src="%:propertie_html_project_root:%/assets/js/main.js"></script>
+	<title>%:text_html_title:%</title>
+</head>
+
+<body>
+	<header>
+		<div class="toprow">
+			<div class="logo">
+				<div><span class="snippet_fweight_light">frame</span>Calendar</div>
+				<span class="snippet_fsize_text snippet_fweight_light">v2</span>
+			</div>
+
+			<div class="menu_desktop">
+				%:html_menu:%
+			</div>
+
+			<div class="menuicon_mobile">
+				<label for="header_menu_mobile_switch">
+					<svg viewBox="0 0 32 32">
+						<path
+							d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z">
+						</path>
+					</svg>
+				</label>
+			</div>
+		</div>
+		<div class="bottomrow">
+			<input type="checkbox" id="header_menu_mobile_switch" value="" class="pseudo">
+			<div class="menu_mobile">
+				%:html_menu:%
+			</div>
+		</div>
+	</header>
+
+	<div class="notifications" id="notifications">
+		<template id="notification_template">
+			<div class="defaultanimation" style="--this-animation-delay: 0ms">
+				<div></div>
+				<div onclick="notification_fadeout(this);">
+					<svg class="close" viewBox="0, 0, 400,400">
+						<g>
+							<path style="transform:rotate(45deg);transform-origin:50% 50%;"
+								d="M193.537 0.911 C 186.701 3.175,181.395 8.145,179.011 14.516 L 177.551 18.418 177.551 97.974 L 177.551 177.529 97.109 177.710 L 16.667 177.891 13.128 179.491 C -3.924 187.203,-3.924 212.797,13.128 220.509 L 16.667 222.109 97.109 222.290 L 177.551 222.471 177.551 302.026 L 177.551 381.582 179.018 385.502 C 185.845 403.750,212.478 404.630,220.509 386.872 L 222.109 383.333 222.290 302.902 L 222.471 222.471 302.902 222.290 L 383.333 222.109 386.872 220.509 C 403.924 212.797,403.924 187.203,386.872 179.491 L 383.333 177.891 302.891 177.710 L 222.449 177.529 222.449 97.974 L 222.449 18.418 220.982 14.498 C 217.026 3.924,203.964 -2.543,193.537 0.911"
+								stroke="none" fill-rule="evenodd"></path>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</template>
+		%:html_notifications:%
+	</div>
+
+	<form action="" method="post" name="framecalendar_form">
+		<main>
+			%:html_main:%
+		</main>
+
+		<input type="hidden" id="page" name="page" value="%:hidden_memory_page:%">
+		<input type="hidden" id="tab" name="tab" value="%:hidden_memory_tab:%">
+		<input type="hidden" id="subtab" name="subtab" value="%:hidden_memory_subtab:%">
+		<input type="hidden" id="query" name="query" value="%:hidden_memory_query:%">
+		<input type="hidden" id="memory_password" name="memory_password" value="%:hidden_memory_password:%">
+	</form>
+</body>
+
+</html>

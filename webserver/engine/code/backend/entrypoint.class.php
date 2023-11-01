@@ -1,14 +1,14 @@
 <?php
 
-/* BACKEND > ENTRYPOINT */
+/* ENGINE > BACKEND > ENTRYPOINT */
 
 class engine_backend_entrypoint
 {
-    # Entrypoint function
-    public static function run()
-    {
-        echo "Hello World!";
-    }
+	# Entrypoint function
+	public static function run()
+	{
+		echo "Hello World!";
+	}
 }
 
 ?>

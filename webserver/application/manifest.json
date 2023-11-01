@@ -1,3 +1,29 @@
 {
-    
+	"sysconfig": {
+		"order": [
+			"file",
+			"env"
+		],
+		"file": {
+			"enabled": true,
+			"location": "/application/config/system.json"
+		},
+		"env": {
+			"enabled": true
+		},
+		"variables": [
+			"FRAMECALENDAR_MARIADB_HOST",
+			"FRAMECALENDAR_MARIADB_USER",
+			"FRAMECALENDAR_MARIADB_PASSWORD",
+			"FRAMECALENDAR_MARIADB_DATABASE"
+		]
+	},
+	"database": {
+		"credentials_sysconfig_variables": {
+			"host": "FRAMECALENDAR_MARIADB_HOST",
+			"user": "FRAMECALENDAR_MARIADB_USER",
+			"password": "FRAMECALENDAR_MARIADB_PASSWORD",
+			"database": "FRAMECALENDAR_MARIADB_DATABASE"
+		}
+	}
 }
