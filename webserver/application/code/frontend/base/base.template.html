@@ -2,18 +2,18 @@
 <html>
 
 <head>
-	<!-- Developed by Levi Jacobs (J'cobs Softwareentwicklung - jcobs.de) -->
+	<!-- Developed by Levi Jacobs (Fiduc IT - fiducit.de) -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/fonts/noto-sans/noto-sans.css">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/css/variables.css">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/css/base.css">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/css/header.css">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/css/main.css">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/css/toggle.css">
-	<link rel="stylesheet" href="%:GLOBAL_PROJECT_ROOT:%/assets/css/notifications.css">
-	<script src="%:GLOBAL_PROJECT_ROOT:%/assets/js/main.js"></script>
-	<title>%:text_html_title:%</title>
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/fonts/noto-sans/noto-sans.css">
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/css/variables.css">
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/css/base.css">
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/css/header.css">
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/css/main.css">
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/css/toggle.css">
+	<link rel="stylesheet" href="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/css/notifications.css">
+	<script src="%:PROPERTIE_GLOBAL_PROJECT_ROOT:%/assets/js/main.js"></script>
+	<title>%:TEXT_HTML_TITLE:%</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="menu_desktop">
-				%:html_menu:%
+				%:HTML_MENU:%
 			</div>
 
 			<div class="menuicon_mobile">
@@ -41,7 +41,7 @@
 		<div class="bottomrow">
 			<input type="checkbox" id="header_menu_mobile_switch" value="" class="pseudo">
 			<div class="menu_mobile">
-				%:html_menu:%
+				%:HTML_MENU:%
 			</div>
 		</div>
 	</header>
@@ -61,19 +61,19 @@
 				</div>
 			</div>
 		</template>
-		%:html_notifications:%
+		%:HTML_NOTIFICATIONS:%
 	</div>
 
 	<form action="" method="post" name="framecalendar_form">
 		<main>
-			%:html_main:%
+			%:HTML_MAIN:%
 		</main>
 
-		<input type="hidden" id="page" name="page" value="%:hidden_memory_page:%">
-		<input type="hidden" id="tab" name="tab" value="%:hidden_memory_tab:%">
-		<input type="hidden" id="subtab" name="subtab" value="%:hidden_memory_subtab:%">
-		<input type="hidden" id="query" name="query" value="%:hidden_memory_query:%">
-		<input type="hidden" id="memory_password" name="memory_password" value="%:hidden_memory_password:%">
+		<input type="hidden" id="memory_page" name="memory_page" value="%:HIDDEN_MEMORY_PAGE:%">
+		<input type="hidden" id="memory_tab" name="memory_tab" value="%:HIDDEN_MEMORY_TAB:%">
+		<input type="hidden" id="memory_screen" name="memory_screen" value="%:HIDDEN_MEMORY_SCREEN:%">
+		<input type="hidden" id="memory_query" name="memory_query" value="%:HIDDEN_MEMORY_QUERY:%">
+		<input type="hidden" id="memory_password" name="memory_password" value="%:HIDDEN_MEMORY_PASSWORD:%">
 	</form>
 </body>
 

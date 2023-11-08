@@ -21,6 +21,14 @@ class engine_frontend_entrypoint
 			return false;
 		}
 
+		if (!engine_global_appconfig::init()) {
+			return false;
+		}
+
+		if (!engine_frontend_user::init()) {
+			return false;
+		}
+
 		if (!engine_frontend_request::init()) {
 			return false;
 		}

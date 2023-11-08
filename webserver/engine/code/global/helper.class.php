@@ -13,12 +13,21 @@ class engine_global_helper
 		if (!is_readable($file)) {
 			return false;
 		}
-		
+
 		if (!self::isJSON(file_get_contents($file))) {
 			return false;
 		}
 
 		return true;
+	}
+
+	public static function get_post_var($var)
+	{
+		if (array_key_exists($var, $_POST) and isset($_POST[$var])) {
+			return $_POST[$var];
+		} else {
+			return null;
+		}
 	}
 }
 

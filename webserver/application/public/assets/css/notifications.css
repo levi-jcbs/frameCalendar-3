@@ -6,7 +6,7 @@
 	z-index: 11;
 	display: block;
 	position: fixed;
-	top: 0px;
+	top: 85px; /* Below Header */
 	right: 0px;
 }
 

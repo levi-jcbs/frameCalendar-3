@@ -9,9 +9,39 @@
 		"authentication": false,
 		"default": false
 	},
+	"dashboard": {
+		"menu-title": "Dashboard",
+		"authentication": true,
+		"default": true
+	},
+	"eventlists": {
+		"menu-title": "Events",
+		"authentication": true,
+		"default": false
+	},
+	"frames": {
+		"menu-title": "Frames",
+		"authentication": true,
+		"default": false
+	},
+	"calendars": {
+		"menu-title": "Calendars",
+		"authentication": true,
+		"default": false
+	},
+	"designs": {
+		"menu-title": "Designs",
+		"authentication": true,
+		"default": false
+	},
+	"shorts": {
+		"menu-title": "Shorts",
+		"authentication": true,
+		"default": false
+	},
 	"settings": {
 		"menu-title": "Preferences",
 		"authentication": true,
-		"default": true
+		"default": false
 	}
 }

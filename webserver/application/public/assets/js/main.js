@@ -1,8 +1,8 @@
-function load_page(page, tab, subtab, query) {
-	if (page != null) { document.getElementById("page").value = page; }
-	if (tab != null) { document.getElementById("tab").value = tab; }
-	if (subtab != null) { document.getElementById("subtab").value = subtab; }
-	if (query != null) { document.getElementById("query").value = JSON.stringify(query); }
+function load_page(page, tab, screen, query) {
+	if (page != null) { document.getElementById("memory_page").value = page; }
+	if (tab != null) { document.getElementById("memory_tab").value = tab; }
+	if (screen != null) { document.getElementById("memory_screen").value = screen; }
+	if (query != null) { document.getElementById("memory_query").value = JSON.stringify(query); }
 
 	document.framecalendar_form.submit();
 }
