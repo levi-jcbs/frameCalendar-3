@@ -29,6 +29,27 @@ class engine_global_helper
 			return null;
 		}
 	}
+
+	public static function get_get_var($var)
+	{
+		if (array_key_exists($var, $_GET) and isset($_GET[$var])) {
+			return $_GET[$var];
+		} else {
+			return null;
+		}
+	}
+
+	public static function array_field_usable($key, $array)
+	{
+		if (
+			array_key_exists($key, $array)
+			and $array[$key] != ""
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 ?>

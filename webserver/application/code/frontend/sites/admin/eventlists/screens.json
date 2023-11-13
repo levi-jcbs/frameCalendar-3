@@ -1,0 +1,12 @@
+{
+	"overview": {
+		"default": true,
+		"options": []
+	},
+	"eventlist": {
+		"default": false,
+		"options": [
+			"id"
+		]
+	}
+}

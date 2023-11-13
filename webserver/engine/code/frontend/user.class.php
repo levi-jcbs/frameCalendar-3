@@ -9,7 +9,7 @@ class engine_frontend_user extends engine_global_user
 	{
 		self::first_login_set_password(); /* Set password function for first login */
 		self::authenticate();
-		
+
 		return true;
 	}
 
@@ -22,7 +22,7 @@ class engine_frontend_user extends engine_global_user
 		if (engine_global_helper::get_post_var("login_password") == "") {
 			return false;
 		}
-		
+
 		$login_password = $_POST["login_password"];
 
 		engine_frontend_notification::new("positive", "Successfully set password");
@@ -31,7 +31,15 @@ class engine_frontend_user extends engine_global_user
 
 	private static function authenticate()
 	{
+		/* Exit when password not set */
 		if (engine_global_appconfig::$password_hashed === null) {
+			return false;
+		}
+
+		/* Exit when logged out */
+		$logout = engine_global_helper::get_post_var("logout");
+		if (isset($logout)) {
+			engine_frontend_notification::new("positive", "Successfully signed out");
 			return false;
 		}
 

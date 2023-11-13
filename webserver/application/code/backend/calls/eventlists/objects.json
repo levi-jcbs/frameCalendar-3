@@ -1,0 +1,9 @@
+{
+	"eventlist": {
+		"create": {
+			"options": [
+				"name"
+			]
+		}
+	}
+}

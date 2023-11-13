@@ -60,6 +60,7 @@ main .inputbar {
 	display: flex;
 	gap: 10px;
 	margin: 10px 0px;
+	height: 40px;
 }
 
 main .inputbar>div,
@@ -77,6 +78,7 @@ main select {
 	transition: background-color 200ms;
 	font-size: var(--font-size-text);
 	font-weight: var(--font-weight-normal);
+	line-height: 20px;
 }
 
 main .inputbar>div:hover,

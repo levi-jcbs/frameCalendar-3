@@ -5,9 +5,9 @@
 class engine_frontend_entrypoint
 {
 	# Entrypoint function
-	public static function run($post_overrides = array())
+	public static function run($post_overwrites = array())
 	{
-		self::overwrite_post_data($post_overrides);
+		self::overwrite_post_data($post_overwrites);
 
 		if (!engine_global_manifest::init()) {
 			return false;

@@ -16,7 +16,7 @@ class engine_global_appconfig
 
 		if (!self::config_valid()) {
 			self::create_default_config();
-			return true;
+			return true; // Has to be removed when more code else than set_properties happens after this.
 		}
 
 		self::set_properties();

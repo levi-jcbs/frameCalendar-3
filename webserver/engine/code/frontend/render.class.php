@@ -17,14 +17,14 @@ class engine_frontend_render
 
 		# Render Screen
 		$data["html_main"] = call_user_func([
-			"application_frontend_pages_admin_" . engine_frontend_request::$tab . "_" . engine_frontend_request::$screen,
+			"application_frontend_sites_admin_" . engine_frontend_request::$tab . "_" . engine_frontend_request::$screen,
 			"run"
 		]);
 
-		$data["text_html_title"] = engine_frontend_request::$sidemap[engine_frontend_request::$page]["html-title"] . " | " . call_user_func([
-			"application_frontend_pages_admin_" . engine_frontend_request::$tab . "_" . engine_frontend_request::$screen,
+		$data["text_html_title"] = htmlspecialchars(engine_frontend_request::$sitemap[engine_frontend_request::$page]["html-title"] . " | " . call_user_func([
+			"application_frontend_sites_admin_" . engine_frontend_request::$tab . "_" . engine_frontend_request::$screen,
 			"title"
-		]);
+		]));
 
 		# Render 
 
@@ -44,7 +44,7 @@ class engine_frontend_render
 	private static function set_menu($data)
 	{
 		$menu_elements = array();
-		foreach (engine_frontend_request::$sidemap[engine_frontend_request::$page]["tabs"] as $tab => $properties) {
+		foreach (engine_frontend_request::$sitemap[engine_frontend_request::$page]["tabs"] as $tab => $properties) {
 			if ($properties["authentication"] !== engine_global_user::$authenticated) {
 				continue;
 			}
@@ -56,7 +56,7 @@ class engine_frontend_render
 			}
 
 			/* durchsuche screens nach default */
-			foreach (engine_frontend_request::$sidemap[engine_frontend_request::$page]["tabs"][$tab]["screens"] as $thisscreen_key => $thisscreen_vaue) {
+			foreach (engine_frontend_request::$sitemap[engine_frontend_request::$page]["tabs"][$tab]["screens"] as $thisscreen_key => $thisscreen_vaue) {
 				if ($thisscreen_vaue["default"] === true) {
 					$propertie_load_screen = $thisscreen_key;
 					break;
@@ -67,7 +67,7 @@ class engine_frontend_render
 				"class_tab_active" => $class_tab_active,
 				"propertie_load_tab" => $tab,
 				"propertie_load_screen" => $propertie_load_screen,
-				"text_tab_name" => $properties["menu-title"]
+				"text_tab_name" => htmlspecialchars($properties["menu-title"])
 			];
 		}
 
@@ -83,8 +83,8 @@ class engine_frontend_render
 		$count = 0;
 		foreach (engine_frontend_notification::$notifications as $notification) {
 			$snippet_data[] = [
-				"class_notification_type" => $notification["type"],
-				"text_notification_content" => $notification["content"],
+				"class_notification_type" => htmlspecialchars($notification["type"]),
+				"text_notification_content" => htmlspecialchars($notification["content"]),
 				"propertie_notification_delay" => (($count * 1250) + 200) . "ms"
 			];
 			$count++;
@@ -102,7 +102,7 @@ class engine_frontend_render
 		$data["hidden_memory_page"] = engine_frontend_request::$page;
 		$data["hidden_memory_tab"] = engine_frontend_request::$tab;
 		$data["hidden_memory_screen"] = engine_frontend_request::$screen;
-		$data["hidden_memory_query"] = htmlspecialchars(json_encode(engine_frontend_request::$query));
+		$data["hidden_memory_options"] = htmlspecialchars(json_encode(engine_frontend_request::$options));
 		$data["hidden_memory_password"] = engine_global_user::$password;
 
 		return $data;

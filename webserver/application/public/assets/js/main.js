@@ -1,8 +1,8 @@
-function load_page(page, tab, screen, query) {
+function load_page(page, tab, screen, options) {
 	if (page != null) { document.getElementById("memory_page").value = page; }
 	if (tab != null) { document.getElementById("memory_tab").value = tab; }
 	if (screen != null) { document.getElementById("memory_screen").value = screen; }
-	if (query != null) { document.getElementById("memory_query").value = JSON.stringify(query); }
+	if (options != null) { document.getElementById("memory_options").value = JSON.stringify(options); }
 
 	document.framecalendar_form.submit();
 }
@@ -16,10 +16,7 @@ function notification_fadeout(element) {
 function api_request(call) {
 	switch (call) {
 		case 'eventlists:create_eventlist':
-			var target = "eventlists";
-			var action = "create";
-			var object = "eventlist";
-			var options = { "o_name": document.getElementById("create_eventlist_name").value };
+			var options = { "name": document.getElementById("create_eventlist_name").value };
 			break;
 
 		default:
@@ -27,14 +24,19 @@ function api_request(call) {
 			break;
 	}
 
+	call_parameters = call.split(/:|_/);
+
 	var password = document.getElementById("memory_password").value;
+	var group = call_parameters[0];
+	var action = call_parameters[1];
+	var object = call_parameters[2];
 
 	var url_options = "";
 	Object.entries(options).forEach(([option, value]) => {
-		url_options += "&" + encodeURIComponent(option) + "=" + encodeURIComponent(value);
+		url_options += "&o_" + encodeURIComponent(option) + "=" + encodeURIComponent(value);
 	});
 
-	fetch("api/?password=" + encodeURIComponent(password) + "&target=" + encodeURIComponent(target) + "&action=" + encodeURIComponent(action) + "&object=" + encodeURIComponent(object) + url_options)
+	fetch("api/?password=" + encodeURIComponent(password) + "&group=" + encodeURIComponent(group) + "&action=" + encodeURIComponent(action) + "&object=" + encodeURIComponent(object) + url_options)
 		.then(response => response.text())
 		.then(data => {
 			apiresponse = JSON.parse(data);
@@ -84,7 +86,7 @@ function notify(type, description) {
 }
 
 function redirect_from_apiresponse(apiresponse) {
-	if (Array.isArray(apiresponse.target)) {
-		load_page(apiresponse.target[0], apiresponse.target[1], apiresponse.target[2], apiresponse.target[3]);
+	if (typeof apiresponse.target === 'object' && apiresponse.target !== null) {
+		load_page(apiresponse.target.page, apiresponse.target.tab, apiresponse.target.screen, apiresponse.target.options);
 	}
 }
