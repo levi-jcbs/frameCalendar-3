@@ -50,6 +50,13 @@ class engine_global_helper
 			return false;
 		}
 	}
+
+	public static function set_content_type($type)
+	{
+		if ($type == "json") {
+			header("Content-Type: application/json; charset=utf-8");
+		}
+	}
 }
 
 ?>

@@ -85,7 +85,7 @@ class engine_frontend_render
 			$snippet_data[] = [
 				"class_notification_type" => htmlspecialchars($notification["type"]),
 				"text_notification_content" => htmlspecialchars($notification["content"]),
-				"propertie_notification_delay" => (($count * 1250) + 200) . "ms"
+				"propertie_notification_delay" => (($count * 1250) + 200) . "ms" /* Muss so, sonst gehen die nicht schön weg */
 			];
 			$count++;
 		}

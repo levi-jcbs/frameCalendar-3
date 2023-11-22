@@ -2,8 +2,8 @@
 	<div class="h1_subtitle">Eventlist</div>
 	<div class="h1">%:TEXT_EVENTLIST_NAME:%</div>
 	<div class="inputbar">
+		<label for="toggle_checkbox_create_event">New event</label>
 		<label for="toggle_checkbox_set_defaults">Set defaults</label>
-		<label>Manage custom columns</label>		
 	</div>
 </div>
 
@@ -13,10 +13,9 @@
 	<div class="eventlist">
 		<div>
 			<div class="timerow">
-				<input type="date" value="2023-05-08" disabled>
-				<input type="time" value="07:47" disabled>
+				<input type="date" value="" disabled>
+				<input type="time" value="" disabled>
 				<input type="number" placeholder="duration (minutes)" value="60">
-				<div class="button"><b>save defaults</b></div>				
 			</div>
 
 			<div class="linkrow">
@@ -44,19 +43,23 @@
 				<textarea placeholder="Text"></textarea>
 				<textarea placeholder="Text (Frame)"></textarea>
 			</div>
+			<div class="inputbar">
+				<div class="button"><b>save defaults</b></div>
+				<div class="button">discard</div>
+			</div>
 		</div>
 	</div>
 </section>
 
+<input type="checkbox" id="toggle_checkbox_create_event" class="section_toggle">
 <section>
-	<div class="h2">Events</div>
+	<div class="h2">New event</div>
 	<div class="eventlist">
 		<div>
 			<div class="timerow">
 				<input type="date">
 				<input type="time">
 				<input type="number" placeholder="duration (minutes)">
-				<div class="button"><b>add</b></div>
 			</div>
 
 			<div class="linkrow">
@@ -76,7 +79,6 @@
 
 			<div class="colrow">
 				<input type="text" placeholder="Place">
-				<input type="text" placeholder="Person">
 			</div>
 
 			<div class="contentrow">
@@ -84,6 +86,53 @@
 				<input type="text" placeholder="Headline (Frame)">
 				<textarea placeholder="Text"></textarea>
 				<textarea placeholder="Text (Frame)"></textarea>
+			</div>
+			<div class="inputbar">
+				<div class="button"><b>add event</b></div>
+				<div class="button">discard</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="h2">Events</div>
+	<div class="eventlist">
+		<div>
+			<div class="timerow">
+				<div>13. November 2023</div>
+				<div>13:37 Uhr</div>
+				<div>60 Minuten</div>
+			</div>
+
+			<div class="linkrow">
+				<input type="url" placeholder="Link">
+				<select>
+					<option disabled>Target</option>
+					<option>Same tab</option>
+					<option>New tab</option>
+				</select>
+
+				<select>
+					<option disabled>Usage</option>
+					<option>Only Text</option>
+					<option>Text & Frame</option>
+				</select>
+			</div>
+
+			<div class="colrow">
+				<input type="text" placeholder="Place">
+			</div>
+
+			<div class="contentrow">
+				<input type="text" placeholder="Headline">
+				<input type="text" placeholder="Headline (Frame)">
+				<textarea placeholder="Text"></textarea>
+				<textarea placeholder="Text (Frame)"></textarea>
+			</div>
+			<div class="inputbar">
+				<div class="button"><b>add event</b></div>
+				<div class="button">discard</div>
 			</div>
 		</div>
 	</div>

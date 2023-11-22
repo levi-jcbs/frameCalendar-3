@@ -16,16 +16,16 @@ section {
 /* MEDIA */
 
 /* desktop */
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
 	main {
 		margin: 0px 15vw;
 	}
 }
 
 /* mobile */
-@media (max-width: 1099px) {
+@media (max-width: 1199px) {
 	main {
-		margin: 0px 25px;
+		margin: 0px 5vw;
 	}
 }
 
@@ -60,7 +60,6 @@ main .inputbar {
 	display: flex;
 	gap: 10px;
 	margin: 10px 0px;
-	height: 40px;
 }
 
 main .inputbar>div,
@@ -198,24 +197,27 @@ main .eventlist>div>div.timerow input[type=time] {
 
 main .eventlist>div>div.timerow input {
 	width: auto;
-	flex: 0 1 195px;
+	flex: 0 1 200px;
 }
 
 main .eventlist>div>div.timerow .button {
-	width: fit-content;
+	width: auto;
+	flex: 0 2 200px;
+	text-align: center;
 	margin-left: auto;
 }
 
 main .eventlist>div>div.linkrow input {
-	flex: 0 1 400px;
+	flex: 0 1 410px;
 }
 
 main .eventlist>div>div.linkrow select {
-	flex: 0 1 auto;
+	flex: 0 1 200px;
 }
 
 main .eventlist>div>div.colrow input {
-	width: 195px;
+	flex: 0 1 410px;
+	min-width: 150px;
 }
 
 main .eventlist>div>div.contentrow {
@@ -234,6 +236,11 @@ main .eventlist>div>div.contentrow textarea {
 main .eventlist>div>div.contentrow input:first-of-type,
 main .eventlist>div>div.contentrow textarea:first-of-type {
 	font-weight: var(--font-weight-bold);
+}
+
+main .eventlist>div>div.inputbar>.button {
+	flex: 1 1 0px;
+	text-align: center;
 }
 
 /* etc */

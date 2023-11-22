@@ -9,6 +9,8 @@ class engine_backend_entrypoint
 	{
 		self::overwrite_get_data($get_overwrites);
 
+		engine_global_helper::set_content_type("json");
+
 		if (!engine_global_manifest::init()) {
 			return false;
 		}
