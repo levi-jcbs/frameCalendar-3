@@ -15,9 +15,8 @@ header>.toprow {
 	display: flex;
 	justify-content: space-between;
 	position: sticky;
-	gap: 75px;
+	gap: 50px;
 	margin: 25px 0px;
-	flex-wrap: wrap;
 }
 
 header>.bottomrow {
@@ -89,7 +88,7 @@ header>.bottomrow>.menu_mobile>div {
 /* MEDIA */
 
 /* desktop */
-@media (min-width: 1200px) {
+@media (min-width: 1100px) {
 	header>.toprow>.menuicon_mobile {
 		display: none;
 	}
@@ -108,7 +107,7 @@ header>.bottomrow>.menu_mobile>div {
 }
 
 /* mobile */
-@media (max-width: 1199px) {
+@media (max-width: 1099px) {
 	header>.toprow>.menuicon_mobile {
 		display: flex;
 	}
