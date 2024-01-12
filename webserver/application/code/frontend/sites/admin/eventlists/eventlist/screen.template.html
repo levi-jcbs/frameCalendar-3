@@ -1,17 +1,17 @@
-<div class="titlebar">
+<section class="titlebar">
 	<div class="h1_subtitle">Eventlist</div>
 	<div class="h1">%:TEXT_EVENTLIST_NAME:%</div>
 	<div class="inputbar">
 		<label for="toggle_checkbox_create_event">New event</label>
 		<label for="toggle_checkbox_set_defaults">Set defaults</label>
 	</div>
-</div>
+</section>
 
 <input type="checkbox" id="toggle_checkbox_set_defaults" class="section_toggle">
 <section>
 	<div class="h2">Set defaults</div>
 	<div class="eventlist">
-		<div>
+		<div class="edit">
 			<div class="timerow">
 				<input type="date" value="" disabled>
 				<input type="time" value="" disabled>
@@ -55,7 +55,7 @@
 <section>
 	<div class="h2">New event</div>
 	<div class="eventlist">
-		<div>
+		<div class="edit">
 			<div class="timerow">
 				<input type="date">
 				<input type="time">
@@ -98,41 +98,88 @@
 <section>
 	<div class="h2">Events</div>
 	<div class="eventlist">
-		<div>
-			<div class="timerow">
-				<div>13. November 2023</div>
-				<div>13:37 Uhr</div>
-				<div>60 Minuten</div>
+		<div class="show">
+			<div class="propertiecol">
+				<div class="timerow">
+					<div>13. September 2023</div>
+					<div>13:37 Uhr</div>
+					<div>60 Minuten</div>
+				</div>
+				<div class="colrow">
+					<div>Großer Festsaal, Kreuzberg</div>
+					<div>Max Mustermann</div>
+					<div>HipHop, Blues</div>
+				</div>
+				<div class="linkrow">
+					<a href="https://example.com">example.com</a>
+					<div>
+						<div>Same tab</div>
+						<div>Text & Frame</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="linkrow">
-				<input type="url" placeholder="Link">
-				<select>
-					<option disabled>Target</option>
-					<option>Same tab</option>
-					<option>New tab</option>
-				</select>
+			<div class="contentcol">
+				<div>
+					<div>
+						<div>Konzert von Max Mustermann</div>
+						<div onclick="swipe_event_content(this);">Kalender</div>
+					</div>
+					<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut
+						labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+						dolores.</div>
+				</div>
+				<div>
+					<div>
+						<div>Zum aktuellen Konzert</div>
+						<div onclick="swipe_event_content(this);">Frame</div>
+					</div>
+					<div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut.</div>
+				</div>
+			</div>
+		</div>
 
-				<select>
-					<option disabled>Usage</option>
-					<option>Only Text</option>
-					<option>Text & Frame</option>
-				</select>
+		<div class="edit">
+			<div class="propertiecol">
+				<div class="timerow">
+					<input type="datetime-local">
+					<div contenteditable="true">60 Minuten</div>
+				</div>
+				<div class="colrow">
+					<div contenteditable="true">Großer Festsaal, Kreuzberg</div>
+					<div contenteditable="true">Max Mustermann</div>
+					<div contenteditable="true">HipHop, Blues</div>
+				</div>
+				<div class="linkrow">
+					<a href="https://example.com" contenteditable="true">example.com</a>
+					<div>
+						<div contenteditable="true">Same tab</div>
+						<div contenteditable="true">Text & Frame</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="colrow">
-				<input type="text" placeholder="Place">
-			</div>
-
-			<div class="contentrow">
-				<input type="text" placeholder="Headline">
-				<input type="text" placeholder="Headline (Frame)">
-				<textarea placeholder="Text"></textarea>
-				<textarea placeholder="Text (Frame)"></textarea>
-			</div>
-			<div class="inputbar">
-				<div class="button"><b>add event</b></div>
-				<div class="button">discard</div>
+			<div class="contentcol">
+				<div>
+					<div>
+						<div contenteditable="true">Konzert von Max Mustermann</div>
+						<div onclick="swipe_event_content(this);">Kalender</div>
+					</div>
+					<div contenteditable="true">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut
+						labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+						dolores.</div>
+				</div>
+				<div>
+					<div>
+						<div contenteditable="true">Zum aktuellen Konzert</div>
+						<div onclick="swipe_event_content(this);">Frame</div>
+					</div>
+					<div contenteditable="true">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+						ut.</div>
+				</div>
 			</div>
 		</div>
 	</div>

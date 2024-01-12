@@ -18,9 +18,10 @@
 /* COLOR SCHEME */
 @media (prefers-color-scheme: light) {
 	:root {
-		--col-background: rgb(90%,90%,90%);
+		--col-background: rgb(90%, 90%, 90%);
 		--col-header: #ffffff;
-		--col-foreground: rgba(0,0,0,0.1);
+		--col-clickable: rgba(0, 0, 0, 0.1);
+		--col-foreground: green;
 		--col-text: #000000;
 		--col-accent: #ffffff;
 		--col-red: #B0000A;
@@ -34,9 +35,10 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--col-background: rgb(15%,15%,15%);
+		--col-background: rgb(10%, 10%, 10%);
 		--col-header: #000000;
-		--col-foreground: rgba(100%, 100%, 100%, 0.1);
+		--col-clickable: rgba(100%, 100%, 100%, 0.1);
+		--col-foreground: green;
 		--col-text: #ffffff;
 		--col-accent: #000000;
 		--col-red: #B0000A;
@@ -47,4 +49,3 @@
 		--col-green-text: #ffffff;
 	}
 }
-

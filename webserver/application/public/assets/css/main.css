@@ -30,12 +30,6 @@ section {
 }
 
 /* title */
-main>.titlebar {
-	position: relative;
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
-
 main>.titlebar>.h1 {
 	font-size: var(--font-size-h1);
 	margin-top: 5px;
@@ -52,7 +46,7 @@ main .h2 {
 	font-size: var(--font-size-h2);
 	font-weight: var(--font-weight-bold);
 	margin-top: 50px;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 /* buttons */
@@ -69,7 +63,7 @@ main .button,
 main select {
 	display: inline-block;
 	border: none;
-	background-color: var(--col-foreground);
+	background-color: var(--col-clickable);
 	color: var(--col-text);
 	padding: 10px 15px;
 	border-radius: 7px;
@@ -93,6 +87,7 @@ main input[type=text],
 main input[type=password],
 main input[type=date],
 main input[type=time],
+main input[type=datetime-local],
 main input[type=number],
 main input[type=url],
 textarea {
@@ -116,6 +111,7 @@ main input[type=text]:disabled,
 main input[type=password]:disabled,
 main input[type=date]:disabled,
 main input[type=time]:disabled,
+main input[type=datetime-local]:disabled,
 main input[type=number]:disabled,
 main input[type=url]:disabled,
 textarea:disabled {
@@ -141,9 +137,9 @@ main .button_overview>div {
 	display: grid;
 	grid-template-areas: "title title" "propertie_1 propertie_2";
 	gap: 10px;
-	padding: 15px 25px;
+	padding: 20px 30px;
 	border-radius: 7px;
-	background-color: var(--col-foreground);
+	background-color: var(--col-clickable);
 	cursor: pointer;
 	transition: background-color 200ms;
 	overflow: hidden;
@@ -174,73 +170,135 @@ main .button_overview>div>div:nth-child(3) {
 }
 
 /* eventlist */
-main .eventlist>div:not(:last-child) {
-	padding-bottom: 15px;
+
+main .eventlist>div {
+	margin: 25px 0px;
 }
 
-main .eventlist>div:not(:first-child) {
-	border-top: 1px solid var(--col-text);
-	padding-top: 15px;
-}
-
-main .eventlist>div>div:not(.contentrow) {
+main .eventlist>div {
 	display: flex;
-	gap: 10px;
-	margin: 10px 0px;
-	overflow-y: auto;
+	flex-wrap: wrap;
+	background-color: var(--col-clickable);
+	transition: background-color 200ms;
+	padding: 20px 30px;
+	border-radius: 7px;
+	gap: 20px;
 }
 
-main .eventlist>div>div.timerow input[type=date],
-main .eventlist>div>div.timerow input[type=time] {
-	min-width: min-content;
+main .eventlist>div>div.contentcol {
+	flex: 10 1 300px;
 }
 
-main .eventlist>div>div.timerow input {
-	width: auto;
-	flex: 0 1 200px;
+main .eventlist>div>div.propertiecol {
+	flex: 1 1 360px;
 }
 
-main .eventlist>div>div.timerow .button {
-	width: auto;
-	flex: 0 2 200px;
-	text-align: center;
-	margin-left: auto;
+main .eventlist>div>div.propertiecol,
+main .eventlist>div>div.contentcol>div {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
-main .eventlist>div>div.linkrow input {
-	flex: 0 1 410px;
+main .eventlist>div>div.propertiecol>div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px 20px;
+	align-content: start;
 }
 
-main .eventlist>div>div.linkrow select {
-	flex: 0 1 200px;
-}
-
-main .eventlist>div>div.colrow input {
-	flex: 0 1 410px;
-	min-width: 150px;
-}
-
-main .eventlist>div>div.contentrow {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	margin: 10px 0px;
-	gap: 10px;
-	overflow-y: auto;
-}
-
-main .eventlist>div>div.contentrow input,
-main .eventlist>div>div.contentrow textarea {
-	width: auto;
-}
-
-main .eventlist>div>div.contentrow input:first-of-type,
-main .eventlist>div>div.contentrow textarea:first-of-type {
+main .eventlist>div>div.propertiecol>div.timerow {
 	font-weight: var(--font-weight-bold);
+	flex: 0 0 32px;
+	align-content: center;
+	position: relative;
+	z-index: 1;
 }
 
-main .eventlist>div>div.inputbar>.button {
-	flex: 1 1 0px;
-	text-align: center;
+main .eventlist>div>div.propertiecol>div.timerow>div:nth-child(1),
+main .eventlist>div>div.propertiecol>div.timerow>div:nth-child(3) {
+	flex: 0 1 auto;
+	z-index: 1;
+}
+
+main .eventlist>div>div.propertiecol>div.timerow>div:nth-child(2) {
+	flex: 1 1 auto;
+	z-index: 1;
+}
+
+main .eventlist>div>div.propertiecol>div.colrow {
+	flex: 1 1 auto;
+}
+
+main .eventlist>div>div.propertiecol>div.colrow>div {
+	border-bottom: 1px solid var(--col-text);
+	padding: 3px;
+}
+
+main .eventlist>div>div.propertiecol>div.linkrow>a {
+	flex: 1 1 auto;
+	text-decoration: none;
+	color: var(--col-text);
+	font-weight: var(--font-weight-light);
+}
+
+main .eventlist>div>div.propertiecol>div.linkrow>div {
+	display: flex;
+	gap: 20px;
+	font-weight: var(--font-weight-light);
+	align-items: center;
+}
+
+main .eventlist>div>div.contentcol {
+	display: grid;
+	grid-template-columns: 100% 100%;
+	gap: 20px;
+	overflow: hidden;
+}
+
+main .eventlist>div>div.contentcol>div>div:first-child {
+	flex: 0 0 32px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap-reverse;
+	gap: 7px 20px;
+}
+
+main .eventlist>div>div.contentcol>div>div:first-child>div:nth-child(1) {
+	font-size: var(--font-size-h2);
+	flex: 1 1 auto;
+}
+
+main .eventlist>div>div.contentcol>div>div:first-child>div:nth-child(2) {
+	transition: background-color 200ms;
+	background-color: var(--col-clickable);
+	padding: 5px 10px;
+	border-radius: 3px;
+	margin-left: auto;
+	cursor: pointer;
+}
+
+
+/* eventlist > show */
+
+main .eventlist>div.show {
+	cursor: pointer;
+}
+
+main .eventlist>div.show:hover {
+	background-color: var(--col-accent);
+}
+
+/* eventlist > edit */
+
+main .eventlist>div.edit input {
+	width: auto !important;
+	padding: 5px 10px;
+	border-radius: 3px;
+}
+
+main .eventlist>div.edit>div.contentcol>div>div:first-child>div:nth-child(2):hover {
+	background-color: var(--col-accent);
 }
 
 /* etc */
@@ -248,7 +306,7 @@ main .logo-inline {
 	display: inline-block;
 	padding: 5px 10px;
 	border-radius: 7px;
-	background-color: var(--col-foreground);
+	background-color: var(--col-accent);
 	font-weight: var(--font-weight-light);
 	margin-bottom: 5px;
 }

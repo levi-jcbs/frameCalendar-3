@@ -90,3 +90,18 @@ function redirect_from_apiresponse(apiresponse) {
 		load_page(apiresponse.target.page, apiresponse.target.tab, apiresponse.target.screen, apiresponse.target.options);
 	}
 }
+
+function swipe_event_content(element) {
+	var element = element.parentNode.parentNode.parentNode;
+
+	// Scroll to the right if position is left
+	if (element.scrollLeft == 0) {
+		var scrollWidth = element.scrollWidth - element.clientWidth;
+		element.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+	}
+	// Scroll fully to the left if position is right
+	else if (element.scrollLeft > 0) {
+		element.scrollTo({ left: 0, behavior: 'smooth' });
+	}
+}
+
